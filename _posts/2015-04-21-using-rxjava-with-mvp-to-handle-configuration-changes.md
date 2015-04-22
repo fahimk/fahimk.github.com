@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RxJava with MVP example to handle configuration changes"
+title: "RxJava with MVP to handle configuration changes"
 description: ""
 category: 
 tags: []
