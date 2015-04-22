@@ -132,7 +132,7 @@ In the SpotifyArtists example I've used a retained fragment to hold the ViewStat
 
 Mosby does have the ability to use an Activity or regular Fragment, however then you are cancelling the requests on orientation change, and then re-requesting after the new activity is created. This would work in some cases, but what if you had a registration form, and the server is still creating the account when you rotate the device. You could cancel and retry that but it might fail because the username now exists.
 
-The other option Hannes suggested is using a Singleton Presenter that would be injected via Dagger instead of creating a new presenter. I think this is also a good alternative if you are trying to stay away from fragments.
+The other option Hannes suggested is using a Singleton Presenter that would be injected via Dagger instead of creating a new presenter. I think this is a good alternative if you are trying to stay away from fragments.
 <br />
 <br />
 
