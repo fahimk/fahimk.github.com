@@ -31,6 +31,7 @@ I think both libraries are great, the Mosby blog post by Hannes (<a href="http:/
 
 ###Mosby
 ![mvp diagram]({{ site.url }}/assets/diagram.png)
+
 ####View
 in the view we need to define the methods that the presenter will call based on what needs to be shown
 {% highlight java %}
