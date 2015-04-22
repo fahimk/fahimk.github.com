@@ -13,8 +13,7 @@ Configuration changes with long running tasks (network calls, database operation
 
 If the callback isn't persistant through the lifcycle changes, then you could end up with just a blank search page on every rotation.
 
-Since the activity is being recreated on the orientation change, we need to keep track of both the network data that is coming in and the current "state" of the activity. State in this case refers to what is currently being displayed to the user.
-
+Since the activity is being recreated on the orientation change, we need to keep track of both the network data that is coming in and the current "state" of the activity. State in this case refers to what is currently being displayed to the user (the progress circle, list of results, or empty search page)
 
 ###Options
 Up until now, I've used robospice which gave the ability to get pending listeners after a rotation. However, this solution excludes the state so that would have to be handled independently. 
@@ -54,7 +53,7 @@ in the view we need to define the methods that the presenter will call based on 
     }
 {% endhighlight %}
 
-Notice how the ViewState is updated based on what the presenter has asked us to display. That way when we have a configuration change, we can save the ViewState to a bundle, and retrieve it in OnCreate if needed.
+Notice how the ViewState is updated based on what the presenter has asked us to display. That way when we have a configuration change, we can save the ViewState to a bundle, and retrieve it in OnCreate if needed.⋅⋅⋅
 
 
 ####ViewState
