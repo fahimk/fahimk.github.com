@@ -119,6 +119,8 @@ View extends MvpViewStateFragment
 Presenter extends MvpBasePresenter
 
 There is an optional Rx module, which currently only supports Lce (loading, content, error) which is a specific configuration where you have an R.id.contentView, R.id.errorView, and an R.id.loadingView where Mosby will show/hide the appropriate one. It's nice if you need to put together a quick app, but there isn't much flexibility if you want to display the error as a toast for example.
+
+Although I'm using RxJava here, the method searchForArtists can use a regular Retrofit call and update the View in the callbacks.
 <br />
 <br />
 
