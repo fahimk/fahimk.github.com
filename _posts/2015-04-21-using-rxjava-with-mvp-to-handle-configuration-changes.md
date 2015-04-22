@@ -26,10 +26,11 @@ I recently stumbled upon two frameworks that take this issue on directly:
 
 <a href="https://github.com/sockeqwe/mosby">ttps://github.com/sockeqwe/mosby</a>
 
-Both have a similar style, where there is a component independent of the activity life cycle that performs the long running task, and then reports back to the activity/view/fragment (while Mosby does offer the ability to tie the Presenter to the Activity lifecycle by cancelling the long running task and then restoring it, I really don't like that solution). They also have a way to keep track of states with built in options for common states: loading, content, error.
+Both have a similar style, where there is a component independent of the activity life cycle that performs the long running task, and then reports back to the activity/view/fragment (while Mosby does offer the ability to tie the Presenter to the Activity lifecycle by cancelling the long running task and then restoring it, I really don't like that solution - more on this later). It also has a way to keep track of states with built in options for common states: loading, content, error.
 
-I think both libraries are great, the Mosby blog post by Hannes (<a href="http://hannesdorfmann.com/android/mosby/">http://hannesdorfmann.com/android/mosby/</a>) had examples with explanations which made it easy to follow. 
+I think both libraries are great, the Mosby blog post by Hannes (<a href="http://hannesdorfmann.com/android/mosby/">http://hannesdorfmann.com/android/mosby/</a>) has some really good examples. 
 
+The main purpose of these libraries is to provide some sort of structure to your design and make it easier by having a lot of the boilerplate code already done.
 
 ###Mosby
 Mosby follows the Model View Presenter programming design pattern. Checkout Hannes' article for more specifics on how MVP is intended to work. 
