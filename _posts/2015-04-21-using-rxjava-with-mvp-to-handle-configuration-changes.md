@@ -121,6 +121,7 @@ when the user presses search, we ask the presenter to perform a search with a qu
 It subscribes to the Observable provided by Retrofit and lets the View know what to display. As I mentioned earlier, Mosby gives you classes to extend that contain a lot of the boilerplate code. The configuration I prefer the most is:
 
 View extends MvpViewStateFragment
+
 Presenter extends MvpBasePresenter
 
 There is an optional Rx module, which currently only supports Lce (loading, content, error) which is a specific configuration where you have an R.id.contentView, R.id.errorView, and an R.id.loadingView where Mosby will show/hide the appropriate one. It's nice if you need to put together a quick app, but there isn't much flexibility if you want to display the error as a toast for example.
