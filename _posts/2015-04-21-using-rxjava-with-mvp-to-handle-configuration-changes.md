@@ -18,9 +18,9 @@ Since the activity is being recreated on the orientation change, we need to keep
 <br />
 
 ###Options
-Up until now, I've used robospice which gave the ability to get pending listeners after a rotation. However, this solution excludes the state so that would have to be handled independently. 
+Up until now, I've used robospice which gave the ability to get pending listeners after a rotation. However, it doesn't take care of saving the view state so that needs to be handled independently
 
-I stumbled upon two frameworks that both take this issue on directly:
+I recently stumbled upon two frameworks that take this issue on directly:
 
 <a href="https://github.com/doridori/Dynamo">https://github.com/doridori/Dynamo</a>
 
@@ -32,6 +32,7 @@ I think both libraries are great, the Mosby blog post by Hannes (<a href="http:/
 
 
 ###Mosby
+Mosby follows the Model View Presenter programming design pattern. Checkout Hannes' article for more specifics on how MVP is intended to work. 
 ![mvp diagram]({{ site.url }}/assets/diagram.png)
 <br />
 <br />
@@ -62,10 +63,12 @@ Notice how the ViewState is updated based on what the presenter has asked us to 
 
 ####ViewState
 {% highlight java %}
+{
     private final int STATE_SHOWING_SEARCH_LIST = 0;
     private final int STATE_SHOWING_LOADING = 1;
 
     private int currentState = 0;
+}
 {% endhighlight %}
 <br />
 
