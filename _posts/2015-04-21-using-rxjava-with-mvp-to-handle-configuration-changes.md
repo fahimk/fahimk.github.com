@@ -7,7 +7,7 @@ tags: []
 ---
 {% include JB/setup %}
 ###Intro
-Configuration changes with long running tasks (network calls, database operations) often results in a bad user experience. Here is a simple app that gets a list of artists based on a search. Even though the network call is maintained, through the orientation, the progress circle disappears. There is no indication that the results are still coming in, but they do eventually. 
+Configuration changes with long running tasks (network calls, database operations) often result in a bad user experience. Here is a simple app that gets a list of artists based on a search. Even though the network call is maintained, through the orientation, the progress circle disappears. There is no indication that the results are still coming in, but they do eventually. 
 
 ![array items and state not saved]({{ site.url }}/assets/bad2.gif)
 
