@@ -29,9 +29,9 @@ Both have a similar style, where there is a component independent of the activit
 
 I think both libraries are great, the Mosby blog post by Hannes (<a href="http://hannesdorfmann.com/android/mosby/">http://hannesdorfmann.com/android/mosby/</a>) had examples with explanations which made it easy to follow. 
 
-###mosby
+###Mosby
 ![mvp diagram]({{ site.url }}/assets/diagram.png)
-**View**
+#####View
 in the view we need to define the methods that the presenter will call based on what needs to be shown
 {% highlight java %}
     public void setData(List<Artist> artists) {
@@ -53,7 +53,7 @@ in the view we need to define the methods that the presenter will call based on 
 
 Notice how the ViewState is updated based on what the presenter has asked us to display. That way when we have a configuration change, we can save the ViewState to a bundle, and retrieve it in OnCreate if needed.
 
-**ViewState**
+#####ViewState
 {% highlight java %}
     private final int STATE_SHOWING_SEARCH_LIST = 0;
     private final int STATE_SHOWING_LOADING = 1;
@@ -62,7 +62,7 @@ Notice how the ViewState is updated based on what the presenter has asked us to 
 {% endhighlight %}
 
 
-**Presenter**
+#####Presenter
 when the user presses search, we ask the presenter to perform a search with a query. here is what that method looks like
 
 {% highlight java %}
@@ -112,13 +112,13 @@ Presenter extends MvpBasePresenter
 
 There is an optional Rx module, which currently only supports Lce (loading, content, error) which is a specific configuration where you have an R.id.contentView, R.id.errorView, and an R.id.loadingView where Mosby will show/hide the appropriate one. It's nice if you need to put together a quick app, but there isn't much flexibility if you want to display the error as a toast for example.
 
-###maintaining the presenter
+#####maintaining the presenter
 In the SpotifyArtists example I've used a retained fragment to hold the ViewState and the adapter for the RecyclerView. 
 
 Mosby does have the ability to use an Activity or regular Fragment, however then you are cancelling the requests on orientation change, and then re-requesting after the new activity is created. This would work in some cases, but what if you had a registration form, and the server is still creating the account when you rotate the device. You could cancel and retry that but it might fail because the username now exists.
 
 The other option Hannes suggested is using a Singleton Presenter that would be injected via Dagger instead of creating a new presenter. I think this is also a good alternative if you are trying to stay away from fragments.
 
-###final result
+#####final result
 Here is the code: <a href="https://github.com/fahimk/SpotifyArtists">https://github.com/fahimk/SpotifyArtists</a>
 ![final result]({{ site.url }}/assets/good.gif)
