@@ -122,8 +122,3 @@ The other option Hannes suggested is using a Singleton Presenter that would be i
 ###final result
 Here is the code: <a href="https://github.com/fahimk/SpotifyArtists">https://github.com/fahimk/SpotifyArtists</a>
 ![final result]({{ site.url }}/assets/good.gif)
-
-
-
-
-
