@@ -13,7 +13,7 @@ Configuration changes with long running tasks (network calls, database operation
 
 If the callback isn't persistant through the lifcycle changes, then you could end up with just a blank search page on every rotation.
 
-Since the activity is being recreated on the orientation change, we need to keep track of both the network data that is coming in and the current "state" of the activity. State in this case refers to what is currently being displayed to the user (the progress circle, list of results, or empty search page)
+Since the activity is being recreated on the orientation change, we need to keep track of both the network data that is coming in and the current "state" of the view. State in this case refers to what is currently being displayed to the user (the progress circle, list of results, or empty search page)
 <br />
 <br />
 
@@ -33,8 +33,9 @@ I think both libraries are great, the Mosby blog post by Hannes (<a href="http:/
 The main purpose of these libraries is to provide some sort of structure to your design and make it easier by having a lot of the boilerplate code already done.
 
 ###Mosby
-Mosby follows the Model View Presenter programming design pattern. Checkout Hannes' article for more specifics on how MVP is intended to work. 
+Mosby follows the Model View Presenter programming design pattern. Checkout Hannes' article for more specifics on how MVP is intended to work. Here is my interpretation of the best way to use Mosby
 ![mvp diagram]({{ site.url }}/assets/diagram.png)
+I prefer to have the Presenter to remain even when the activity gets recreated, so you can imagine the View part getting replaced on every orientation change but the presenter that makes the network calls will be the same instance. There are a few options to make this work (posted below), in this example I make use of a retained fragment.
 <br />
 <br />
 
@@ -117,14 +118,14 @@ when the user presses search, we ask the presenter to perform a search with a qu
     }
 {% endhighlight %}
 
-It subscribes to the Observable provided by Retrofit and lets the View know what to display. The great part about Mosby is that it gives you classes to extend that contain a lot of the boilerplate code. The configuration I prefer the most is:
+It subscribes to the Observable provided by Retrofit and lets the View know what to display. As I mentioned earlier, Mosby gives you classes to extend that contain a lot of the boilerplate code. The configuration I prefer the most is:
 
 View extends MvpViewStateFragment
 Presenter extends MvpBasePresenter
 
 There is an optional Rx module, which currently only supports Lce (loading, content, error) which is a specific configuration where you have an R.id.contentView, R.id.errorView, and an R.id.loadingView where Mosby will show/hide the appropriate one. It's nice if you need to put together a quick app, but there isn't much flexibility if you want to display the error as a toast for example.
 
-Although I'm using RxJava here, the method searchForArtists can use a regular Retrofit call and update the View in the callbacks.
+Although I'm using RxJava here, the method searchForArtists can use any method to make a network call and update the View in the callbacks.
 <br />
 <br />
 
