@@ -53,7 +53,7 @@ in the view we need to define the methods that the presenter will call based on 
     }
 {% endhighlight %}
 
-Notice how the ViewState is updated based on what the presenter has asked us to display. That way when we have a configuration change, we can save the ViewState to a bundle, and retrieve it in OnCreate if needed.⋅⋅⋅
+Notice how the ViewState is updated based on what the presenter has asked us to display. That way when we have a configuration change, we can save the ViewState to a bundle, and retrieve it in OnCreate if needed.
 
 
 ####ViewState
